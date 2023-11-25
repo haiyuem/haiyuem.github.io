@@ -1,7 +1,140 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Haiyue Ma - Ph.D. Student @ Princeton</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            color: #333333;
+        }
+        header, footer {
+            background-color: #333333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        nav {
+            background: #444444;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .section {
+            margin: 4em 0;
+        }
+        .section h2 {
+            color: #333333;
+        }
+        .publications li {
+            margin-bottom: 0.5em;
+        }
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-text {
+            flex: 1;
+            padding: 15px;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Add additional styling as needed */
+        }
+        .header-text {
+            margin-left: 20px; /* Adjust spacing as needed */
+        }
+        .header-photo img {
+            max-width: 100px; /* Adjust size as needed */
+            height: auto;
+            border-radius: 50%; /* Optional: for a circular photo */
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<header>
+    <div class="header-photo">
+        <!-- Replace 'path_to_your_photo.jpg' with the actual path to your photo -->
+        <img src="headshot.jpg" alt="Your Name">
+    </div>
+    <div class="header-text">
+        <h1>Haiyue Ma</h1>
+        <p>Ph.D. Student in Computer Architecture</p>
+    </div>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#CV">CV</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>I am a 3rd-year Electrical and Computer Engineering Ph.D. candidate at Princeton University, doing research in Computer Architecture.</p>
+        <p>I am a member of the <a href="https://parallel.princeton.edu/" target="_blank">Princeton Parallel Group</a>, advised by Prof. David Wentzlaff.</p>
+        <p>Before joining Princeton, I spent three years at Nvidia, working on architecture explorations for future GPU designs with a focus on DL workloads, and full-chip GPU power analysis. I graduated from Washington University in St. Louis with a B.S. in Electrical Engineering in 2018.</p>
+
+        <p> <em><strong>News: I am looking for research internship opportunities in Summer 2024!</strong></em></p>
+    </section>
+
+    <section id="research" class="section">
+        <h2>Research</h2>
+        My current research interests include: 
+        <ul class="research interests">
+            <li>Data value profiling and value locality exploitation</li>
+            <li>Hardware scheduling policy design </li>
+            <li>Data movement patterns and dataflow architecture</li>
+            <li>Low-power architecture </li>
+            <li>Hardware implications of emerging workloads </li>
+        </ul>    </p>
+    </section>
+
+    <section id="publications" class="section">
+        <h2>Publications</h2>
+        <ul class="publications">
+            <!-- List your publications here -->
+            <li><strong>Exploiting Data Commonality in Value Prediction</strong> (Workshop paper) <br></li>
+            <em>The Fifth Young Architect Workshop at ASPLOS 2023</em>, Vancouver, Canada
+            <!-- Add more publications as list items -->
+        </ul>
+    </section>
+
+    <section id="cv" class="section">
+        <h2>CV</h2>
+        <p>You can download my CV <a href="CV_Haiyue_Ma.pdf" download>here</a>.</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p> Email: hm1@princeton.edu </p>
+        <p> LinkedIn: <a href="https://www.linkedin.com/in/haiyue-ma/" target="_blank">My LinkedIn Profile</a> </p>
+    </section>
+</div>
+
+<footer>
+    <p> Haiyue Ma - Last Updated Nov. 2023</p>
+</footer>
+
 </body>
 </html>
