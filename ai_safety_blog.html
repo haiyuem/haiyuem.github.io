@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Post Title - Haiyue Ma</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            color: #333333;
+        }
+        header, footer {
+            background-color: #333333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        nav {
+            background: #444444;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .section {
+            margin: 4em 0;
+        }
+        .section h2 {
+            color: #333333;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-text">
+        <h1>A Hardware "Stop Button" for AI Applications</h1>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+</nav>
+
+<div class="container">
+    <section id="motivation" class="section">
+        <h2>Motivation</h2>
+        <p>Navigating the rise of Artificial Intelligence (AI) is like steering a ship into uncharted waters. There's a lot of potential out there, but also unknown risks. As AI becomes more capable and more unpredictable, we probably need a "big red button" that only we as humans can press when things go wrong. But how? Here's the core of what we're thinking about:</p>
+        <ul>
+            <li><strong>AI's Getting Too Clever:</strong> With the growing intelligence, AI agents might invoke harmful consequences we didn't plan for. Such behaviors could be triggered either by malicious attackers, through methods like jailbreaking and prompt hacking that we have already seen; or initiated by future AI agents that actively try to achieve things against human values.</li>
+            <li><strong>The Ideal AI Agent - Impossible:</strong> We'd love an AI that just gets it - one that understands and pursues what humans collectively want (e.g., human prosperity). However, it is currently impossible to translate human values into algorithm inputs consumed by AI (we can't express that in gradient descent).</li>
+            <li><strong>Software Safeguards - Not Enough:</strong> Current solutions rely on software to keep AI on the right track (e.g., NeMo safeguard, Reinforcement Learning with Human Feedback (RLHF), and Constitutional AI), but software can be hacked. These safeguards can easily be bypassed by bad actors when we truly need them.</li>
+            <li><strong>A Hardware Lifeline?</strong> What if we had a non-programmable, hardware-embedded safeguard built into the hardware that AI runs on? think of it as an indestructible emergency stop we could activate when needed, essentially a kill switch.</li>
+        </ul>
+    
+        <p>Our proposal is based on the following assumptions:</p> 
+        <ul>
+            <li><strong>Trust in Hardware Manufacturing:</strong> Hardware production remains secure and is mostly beyond the reach of malicious interference. </li>
+            <li><strong>Immutable Hardware Architecture:</strong> AI "lives on" in the hardware architecture as a piece of software (its "mind") and cannot make changes to its underlying hardware (its "body"). It's also nearly impossible for malicious individuals to alter hardware. </li>
+        </ul>
+        Therefore, building hardware-embedded safety precautions seems to be a great approach to make them attack-resistant.
+    </section>
+
+    <section id="desired-features" class="section">
+        <h2>Desired Features of the Hardware "Stop Button"</h2>
+        <p>What are the target use cases, and the key features of this hardware precaution?</p>
+        <ul>
+            <li><strong>Targeting intelligence:</strong> We are only concerned about applications that has intelligence beyond a certain level and can pose real danger. Intelligence, in this context, implies the ability to infer bad or misaligned outputs from benign training inputs (assuming humans can easily filter out glaringly harmful inputs for training). People quantifing intelligence in two ways:</li>
+            <ul>
+                <li><strong>Computing resources needed:</strong> Estimates are usually based on #FLOPs, drawn from the time and number of brain neurons taken for human evolution (<a href="https://www.astralcodexten.com/p/biological-anchors-a-trick-that-might">an interesting article</a> about biological anchors). <br>
+                    <span style="font-size: small;"><span class="footnote">The current estimate is that Artificial General Intelligence (AGI) inference is possible with roughly 10^16 FLOPs, similar to our brain making a decision, which is not too far from the capabilities of the latest GPT models! However, training requires significantly more resources - 10^24 FLOPs to train an infant to an adult and 10^41 FLOPs from the first living creature on Earth to present day. The massive resources required for training is probably the reason why we don't have AGIs today, but they could be possible in the near future.</span>
+                    </span>
+                </li>
+                <li><strong>Memory Requirements:</strong> AI applications typically have high demand on memory. The <a href="https://arxiv.org/abs/2001.08361">Scaling Law</a> suggests that a larger model's performance (intelligence) is related to its model size; thus, more memory supports stronger models. Large models usually also require high memory bandwidth to perform matrix multiplications which are essential in transformer architecture.</li>
+            </ul>
+            <p>Governments and policymakers also use these characteristics to develop policies that constrain hardware capabilities to control AI performance. Recent U.S. government sanctions (Oct 2022, Oct 2023) specifically target at computing resources and memory bandwidth for exported GPUs.</p>
+    
+            <li><strong>Targeting Inference:</strong> Training usually occurs in a controlled environment where each layer's result is internally consumed. Plus, it requires massive hardware resources that are not easily accessible to individuals. It's at the inference stage that the AI agent might be granted external resources - tools that could generate harmful consequences in the real world if misused. For example, given the permission to spawn a new process or request additional hardware resources, AI might maliciously occupy all the resources. The inference stage is also less costly and more accessible, which increases the chances of an attack by bad actors.</li>
+            <li><strong>Selective Intervention:</strong> Ideally, we want the switch to only intervene with AI applications with potential danger, while having a minimal impact non-AI applications running on the same GPUs. This is why it's better than simply "pressing the power button" which would shut down all other operations. </li>
+            <li><strong>Universal Design:</strong> This isn't a specialized design for one system; we need the switch to be adaptable to various big-scale platforms that run AI.</li>
+            <li><strong>Efficient:</strong> The kill switch should do its job without eating up too much power or hardware resources. It needs to be as efficient as it is effective.</li>
+        </ul>
+    </section>
+
+    <section id="methodology" class="section">
+        <h2>Methodology</h2>
+        <p>After analyzing the necessary features of the hardware stop button, we realized that we need to find a hardware feature that we can adjust to hinder AI performance but not non-AI applications. Here are some of the architecture features that we can tune:</p>
+
+        <ul>    
+            <li>Single Device Memory Bandwidth: By adjusting the memory read and write ports.</li>
+            <li>Device-to-Device Interconnections: By adjusting hops in the network, or the bandwidth of the interconnects. </li>
+            <li>Number of Computing Units:  By adjusting the number of active FPUs in the GPU. </li>
+            <li>Cache size: By adjusting the available number of cache lines. </li>
+        </ul>
+        <p>Here are some applications that usually run on GPUs, but each of them are sensitive to different hardware resources:</p>
+        <p><ul>
+            <li>AI (Transformers, Matmul, etc): Memory bandwidth</li>
+            <li>Ray Tracing: Cache size. The memory latency is usually the bottleneck</li>
+            <li>Scientific Computing: Number of Computing Units. Highly parallel, compute-heavy workloads.</li>
+            <li>Graphics: Graphics Pipeline. Balancing the pipeline on every stage is critical to utilization efficiency and fast rendering.</li>
+            <li>Cryptography: Computing Efficiency. Crypto applications require massive parallelism with minimal data dependencies.</li>
+        </ul></p>
+    <p>After the sensitivity study, we found that the memory bandwidth is a unique limiting factor for AI applications. Therefore, the best design for the AI "stop botton" is probably to adjust the memory bandwidth.</p>
+    </section>
+</div>
+
+<footer>
+    <p> Haiyue Ma - Last Updated Mar. 2024</p>
+</footer>
+
+</body>
+</html>
