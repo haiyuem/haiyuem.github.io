@@ -100,18 +100,55 @@
 
     <section id="research" class="section">
         <h2>Research</h2>
-        I am broadly interested in hardware/software co-design and system-level performance optimization for emerging workloads. My main research direction is on scheduling. 
-        <!-- My current and past research directions include: 
-        <ul class="research interests">
-            <li>System-level AI safety precautions </li>
-            <li>Compute unit interconnections and communication patterns</li>
-            <li>Data movement patterns and dataflow architecture</li>
-            <li>Scheduling policies and strategies </li>
-        </ul>    </p> -->
-
-        My past and current work include:
+        <p>I am broadly interested in hardware/software co-design and system-level performance optimization for emerging workloads. My main research direction is on scheduling.</p>
+    
+        <p>My past and current work includes:</p>
+    
+        <h3>LLM Scheduling</h3>
         <ul class="llm scheduling">
-        LLM scheduling: Hardware-aware scheduling for large-scale LLM workloads to improve efficiency 
+            <li><strong>Reducing the Cost of Dropout in Flash-Attention by Hiding RNG with GEMM</strong> 
+                <em>In Submission</em><br>
+                In LLM training, fusing Dropout into Flash-Attention causes hardware resource contention and GPU underutilization. We propose overlapping RNG (the major part of Dropout) with GEMM to improve training efficiency since they have complementary resource utilization and no data dependency.
+            </li>
+            
+            <li><strong>Data-aware MoE Scheduling: Predicting and Balancing Expert Distribution for LLM Serving</strong>
+                <em>Work in Progress</em><br>
+                Expert Parallelism ideally performs better than Tensor Parallelism with uniform expert distribution. However, real workloads have heavily skewed distributions which lead to load imbalance and bubbles. We attempt to predict and redistribute experts to achieve near-optimal performance with Expert Parallelism for LLM serving.
+            </li>
+            
+            <li><strong>A Fine-Grained Theoretical Model for LLM Scheduler Exploration: Fusion and Overlapping</strong>
+                <em>Work in Progress</em><br>
+                A fast, first-principle model based on GPU resource utilization to analyze the performance of different LLM scheduling strategies, including fusion and overlapping.
+            </li>
+        </ul>
+    
+        <h3>Data-Aware Instruction-Level Scheduling</h3>
+        <ul class="inst level scheduling">
+            <li><strong>A Value-Aware, Dynamic Hardware Scheduler for Energy Reduction</strong>
+                <em>In Submission</em><br>
+                A hardware scheduler added to the Issue Stage of the pipeline that predicts instruction operand value locality and schedules instructions with similar operands consecutively to reduce switching activity and dynamic energy consumption.
+            </li>
+            
+            <li><strong>DVProf: Profiling Dynamic Value Locality Between Instructions</strong>
+                (Poster) <br>
+                <em>2024 IEEE International Symposium on Workload Characterization Posters</em>, Vancouver, Canada
+            </li>
+            
+            <li><strong>Exploiting Data Commonality in Value Prediction</strong>
+                (Workshop paper) <br>
+                <em>The Fifth Young Architect Workshop at ASPLOS 2023</em>, Vancouver, Canada
+            </li>
+        </ul>
+    </section>
+    
+
+    <!-- <section id="research" class="section">
+        <h2>Research</h2>
+        I am broadly interested in hardware/software co-design and system-level performance optimization for emerging workloads. My main research direction is on scheduling.
+
+        <p> My past and current work include:</p>
+        <ul class="llm scheduling">
+        <p> LLM scheduling: Hardware-aware scheduling for large-scale LLM workloads to improve efficiency 
         <li><strong>Reducing the Cost of Dropout in Flash-Attention by Hiding RNG with GEMM</strong>
             <em>In Submission</em>
             In LLM training, fusing Dropout into Flash-Attention causes hardware resource contention and GPU underutilization. We propose overlapping RNG (the major part of Dropout) with GEMM to improve training efficiency since they have complementary resource utilization and no data dependency.
@@ -135,7 +172,7 @@
         <li><strong>Exploiting Data Commonality in Value Prediction</strong> (Workshop paper) <br></li>
             <em>The Fifth Young Architect Workshop at ASPLOS 2023</em>, Vancouver, Canada
         </ul>
-    </section>
+    </section> -->
 
     <!-- <section id="publications" class="section">
         <h2>Publications</h2>
