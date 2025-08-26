@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Haiyue Ma - Ph.D. Student @ Princeton</title>
+    <title>Haiyue Ma - Ph.D. Candidate @ Princeton</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -42,28 +42,18 @@
         .publications li {
             margin-bottom: 0.5em;
         }
-        .about-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .about-text {
-            flex: 1;
-            padding: 15px;
-        }
         header {
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Add additional styling as needed */
         }
         .header-text {
-            margin-left: 20px; /* Adjust spacing as needed */
+            margin-left: 20px;
         }
         .header-photo img {
-            max-width: 100px; /* Adjust size as needed */
+            max-width: 100px;
             height: auto;
-            border-radius: 50%; /* Optional: for a circular photo */
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -71,139 +61,91 @@
 
 <header>
     <div class="header-photo">
-        <!-- Replace 'path_to_your_photo.jpg' with the actual path to your photo -->
-        <img src="headshot.jpg" alt="Your Name">
+        <img src="headshot.jpg" alt="Haiyue Ma">
     </div>
     <div class="header-text">
         <h1>Haiyue Ma</h1>
-        <p>Ph.D. Student in Computer Architecture</p>
+        <p>Ph.D. Candidate in Computer Architecture, Princeton University</p>
     </div>
 </header>
 
 <nav>
     <a href="#about">About</a>
     <a href="#research">Research</a>
-    <!-- <a href="#publications">Publications</a> -->
+    <a href="#publications">Publications</a>
     <a href="#CV">CV</a>
     <a href="#contact">Contact</a>
-    <a href="#blog">Crazy Ideas</a> <!-- New Blog Link -->
+    <a href="#blog">Crazy Ideas</a>
 </nav>
 
 <div class="container">
+
     <section id="about" class="section">
         <h2>About Me</h2>
-        <p>I am an Electrical and Computer Engineering Ph.D. candidate at Princeton University, doing research in Computer Architecture.</p>
-        <p>I am a member of the <a href="https://parallel.princeton.edu/" target="_blank">Princeton Parallel Group</a>, advised by Prof. David Wentzlaff.</p>
-        <p>Before joining Princeton, I spent three years at Nvidia, working on architecture explorations for future GPU designs with a focus on DL workloads, and full-chip GPU power analysis. I graduated from Washington University in St. Louis with a B.S. in Electrical Engineering in 2018.</p>
+        <p>I am a Ph.D. candidate in <strong>Electrical and Computer Engineering</strong> at Princeton University, advised by Prof. David Wentzlaff. My research lies at the intersection of <strong>GPU systems architecture, hardware/software co-design, and microarchitecture</strong>, with a focus on modeling performance bottlenecks in large-scale machine learning workloads.</p>
 
+        <p>Most recently, I interned at <strong>NVIDIA</strong> (Summer 2024 & Summer 2025), where I worked on GPU performance modeling for <em>Mixture-of-Experts (MoE)</em> inference and on overlapping GPU kernels in <em>FlashAttention</em>-based LLM training.</p>
+
+        <p>Before starting my Ph.D., I spent three years at NVIDIA Shanghai, contributing to the <em>Ampere</em> and <em>Orin</em> architectures. I received my B.S. in Electrical Engineering from Washington University in St. Louis in 2018.</p>
     </section>
 
     <section id="research" class="section">
         <h2>Research</h2>
-        <p>I am broadly interested in hardware/software co-design and system-level performance optimization for emerging workloads. My main research direction is on scheduling.</p>
-    
-        <p>My past and current work includes:</p>
-    
-        <h3>LLM Scheduling</h3>
-        <ul class="llm scheduling">
-            <li><strong>Reducing the Cost of Dropout in Flash-Attention by Hiding RNG with GEMM</strong> 
-                <em>In Submission</em><br>
-                In LLM training, fusing Dropout into Flash-Attention causes hardware resource contention and GPU underutilization. We propose overlapping RNG (the major part of Dropout) with GEMM to improve training efficiency since they have complementary resource utilization and no data dependency.
-            </li>
-            
-            <li><strong>Data-aware MoE Scheduling: Predicting and Balancing Expert Distribution for LLM Serving</strong>
-                <em>Work in Progress</em><br>
-                Expert Parallelism ideally performs better than Tensor Parallelism with uniform expert distribution. However, real workloads have heavily skewed distributions which lead to load imbalance and bubbles. We attempt to predict and redistribute experts to achieve near-optimal performance with Expert Parallelism for LLM serving.
-            </li>
-            
-            <li><strong>A Fine-Grained Theoretical Model for LLM Scheduler Exploration: Fusion and Overlapping</strong>
-                <em>Work in Progress</em><br>
-                A fast, first-principle model based on GPU resource utilization to analyze the performance of different LLM scheduling strategies, including fusion and overlapping.
-            </li>
+        <p>My research focuses on performance modeling and scheduling of GPU-based systems for machine learning, as well as microarchitectural techniques for energy-efficient computing.</p>
+
+        <h3>LLM & MoE Scheduling</h3>
+        <ul>
+            <li><strong>Performance Impact of MoE Load Imbalance</strong> - Built analytical models to quantify load imbalance in large-scale MoE inference and studied expert placement/duplication strategies (NVIDIA 2025 internship, paper in preparation).</li>
+            <li><strong>MoE-GPS</strong> (<em>arXiv:2506.07366</em>, 2025) - Framework for prediction strategies in dynamic expert duplication for balanced expert workload distribution.</li>
+            <li><strong>Overlapping RNG with GEMM in Dropout</strong> (<em>arXiv:2410.07531</em>, 2024) - Proposed GPU-level kernel overlapping to improve resource utilization in LLM training (NVIDIA 2024 internship).</li>
         </ul>
-    
+
         <h3>Data-Aware Instruction-Level Scheduling</h3>
-        <ul class="inst level scheduling">
-            <li><strong>A Value-Aware, Dynamic Hardware Scheduler for Energy Reduction</strong>
-                <em>In Submission</em><br>
-                A hardware scheduler added to the Issue Stage of the pipeline that predicts instruction operand value locality and schedules instructions with similar operands consecutively to reduce switching activity and dynamic energy consumption.
-            </li>
-            
-            <li><strong>DVProf: Profiling Dynamic Value Locality Between Instructions</strong>
-                (Poster) <br>
-                <em>2024 IEEE International Symposium on Workload Characterization Posters</em>, Vancouver, Canada
-            </li>
-            
-            <li><strong>Exploiting Data Commonality in Value Prediction</strong>
-                (Workshop paper) <br>
-                <em>The Fifth Young Architect Workshop at ASPLOS 2023</em>, Vancouver, Canada
-            </li>
+        <ul>
+            <li><strong>VASER: Value-Aware Scheduler for Energy Reduction</strong> - Microarchitecture-level scheduling technique to reduce dynamic energy consumption (<em>Poster, PACT 2025</em>).</li>
+            <li><strong>DVProf</strong> - Tool for profiling dynamic operand value locality invisible to static analysis (<em>IISWC 2024 Poster</em>).</li>
+            <li><strong>Exploiting Data Commonality in Value Prediction</strong> - Leveraging inherent value patterns for improved prediction (<em>ASPLOS Young Architect Workshop 2023</em>).</li>
+        </ul>
+
+        <h3>Architecture for AI Safety & Policy</h3>
+        <ul>
+            <li><strong>Differential Architecture</strong> - Methodology for building hardware that <em>intentionally</em> bounds performance of targeted AI workloads while preserving efficiency for general applications (in submission).</li>
         </ul>
     </section>
-    
-
-    <!-- <section id="research" class="section">
-        <h2>Research</h2>
-        I am broadly interested in hardware/software co-design and system-level performance optimization for emerging workloads. My main research direction is on scheduling.
-
-        <p> My past and current work include:</p>
-        <ul class="llm scheduling">
-        <p> LLM scheduling: Hardware-aware scheduling for large-scale LLM workloads to improve efficiency 
-        <li><strong>Reducing the Cost of Dropout in Flash-Attention by Hiding RNG with GEMM</strong>
-            <em>In Submission</em>
-            In LLM training, fusing Dropout into Flash-Attention causes hardware resource contention and GPU underutilization. We propose overlapping RNG (the major part of Dropout) with GEMM to improve training efficiency since they have complementary resource utilization and no data dependency.
-        
-        <li><strong>Data-aware MoE Scheduling: Predicting and Balancing Expert Distribution for LLM Serving </strong>
-            <em>Work in Progress</em>
-            Expert Parallelism ideally performs better than Tensor Parallelism with uniform expert distribution; however real workloads have heavily skewed distributions which leads to load imbalance and bubbles. We attempt to predict and re-distributes experts to achieve near-optimal performance with Expert Parallelism for LLM serving.
-            
-        <li><strong>A Fine-Grained Theoretical Model for LLM Scheduler Exploration: Fusion and Overlapping </strong>
-            <em>Work in Progress</em>
-            A fast, first-principle model based on GPU resource utilization to analyze the performance of different LLM scheduling strategies, including fusion and overlapping.
-        </ul>
-        
-        <ul class="inst level scheduling">
-        Data-aware Instruction-level scheduling 
-        <li><strong>A Value-Aware, Dynamic Hardware Scheduler for Energy Reduction</strong>
-            <em>In Submission</em>
-            A hardware scheduler added to the Issue Stage of the pipeline that predicts instruction operand value locality and schedules instructions with similar operands consecutively to reduce switching activity and dynamic energy consumption.
-        <li><strong>DVProf: Profiling Dynamic Value Locality Between Instructions</strong> (Poster) <br></li>
-            <em>2024 IEEE International Symposium on Workload Characterization Posters</em>, Vancouver, Canada
-        <li><strong>Exploiting Data Commonality in Value Prediction</strong> (Workshop paper) <br></li>
-            <em>The Fifth Young Architect Workshop at ASPLOS 2023</em>, Vancouver, Canada
-        </ul>
-    </section> -->
-
-    <!-- <section id="publications" class="section">
-        <h2>Publications</h2>
+<!-- 
+    <section id="publications" class="section">
+        <h2>Publications & Preprints</h2>
         <ul class="publications">
-            <li><strong>Exploiting Data Commonality in Value Prediction</strong> (Workshop paper) <br></li>
-            <em>The Fifth Young Architect Workshop at ASPLOS 2023</em>, Vancouver, Canada
+            <li><strong>Differential Architecture: Limiting Performance of Targeted Applications</strong> - Submitted to HPCA 2026 (with August Ning & David Wentzlaff).</li>
+            <li><strong>MoE-GPS: Guidelines for Prediction Strategy for Dynamic Expert Duplication in MoE Load Balancing</strong> - <em>arXiv:2506.07366</em>, 2025.</li>
+            <li><strong>Reducing the Cost of Dropout in Flash-Attention by Hiding RNG with GEMM</strong> - <em>arXiv:2410.07531</em>, 2024.</li>
+            <li><strong>VASER: Value-Aware Scheduler for Energy Reduction</strong> - Poster, PACT 2025.</li>
+            <li><strong>DVProf: Profiling Dynamic Value Locality Between Instructions</strong> - Poster, IISWC 2024.</li>
+            <li><strong>Exploiting Data Commonality in Value Prediction</strong> - ASPLOS 2023 Young Architect Workshop.</li>
         </ul>
     </section> -->
 
     <section id="cv" class="section">
         <h2>CV</h2>
-        <p>You can download my CV <a href="CV_Haiyue_Ma.pdf" download>here</a>.</p>
+        <p>You can download my full CV <a href="CV_Haiyue_Ma.pdf" download>here</a> (updated Aug. 2025).</p>
     </section>
 
     <section id="blog" class="section">
         <h2>Blog Articles on Crazy Ideas</h2>
         <ul>
             <li><a href="ai_safety_blog.html">A Hardware "Stop Button" for AI Applications</a> - March 2024</li>
-            <!-- Add more blog posts here -->
         </ul>
     </section>
 
     <section id="contact" class="section">
         <h2>Contact</h2>
-        <p> Email: hm1@princeton.edu </p>
-        <p> LinkedIn: <a href="https://www.linkedin.com/in/haiyue-ma/" target="_blank">My LinkedIn Profile</a> </p>
+        <p>Email: <a href="mailto:hm1@princeton.edu">hm1@princeton.edu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/haiyue-ma/" target="_blank">My LinkedIn Profile</a></p>
     </section>
 </div>
 
 <footer>
-    <p> Haiyue Ma - Last Updated Sep. 2024</p>
+    <p>Haiyue Ma - Last Updated Aug. 2025</p>
 </footer>
 
 </body>
