@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Research & Personal Interests - Haiyue Ma</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            color: #333333;
+        }
+        header, footer {
+            background-color: #333333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        nav {
+            background: #444444;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .section {
+            margin: 4em 0;
+        }
+        .section h2 {
+            color: #333333;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 2em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        .research-question {
+            background-color: #e8f4f8;
+            padding: 1em;
+            border-left: 4px solid #2c5aa0;
+            margin: 1em 0;
+        }
+        a {
+            color: #2c5aa0;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-text">
+        <h1>Research & Personal Interests</h1>
+        <p>Exploring the Philosophy of Technology and AI-Hardware Co-design</p>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="ai_safety_blog.html">AI Safety Blog</a>
+</nav>
+
+<div class="container">
+    <section id="overview" class="section">
+        <h2>Research Philosophy</h2>
+        <p>As a sci-fi lover and an active follower of new developments of technology, I am broadly interested in the <strong>Philosophy of Technology</strong> - how the advance of AI/ML will shape social conventions and create new paradigm. Specifically, with my research direction in computer architecture and systems, I am interested in advancing chip making process and architecture design which could play a significant role in such paradigm shift.</p>
+        
+        <p>My first full-time job after undergraduate at NVIDIA as an ASIC power engineer exposed me to the entire process of chip making, including the architecture design, the synthesis and the physical design stage. As I found that my interests rooted deeply in computer architecture, I later moved to the company's architecture team, and eventually started pursuing my Ph.D. at Princeton.</p>
+    </section>
+
+    <section id="research-question" class="section">
+        <h2>The Big Question</h2>
+        <div class="research-question">
+            <p><strong>What is the next big thing in computing and what can we architects do about it?</strong></p>
+            <p>After exploring edge computing, value proximity and instruction/kernel scheduling, my current answer is <em>"the advance of AI algorithms and the hardware development lagging behind it, both for acceleration and for safety precaution"</em>.</p>
+        </div>
+        
+        <p>The scalability of AI models/agents are clearly bottlenecked by the current capabilities of hardware, but where is the upper limit of the hardware? What does a tailored AI-specific hardware look like? On the other hand, AI's interpretability is low - can we handle the potential threat of AI to the human society from the hardware side?</p>
+        
+        <p>These are the questions that I am broadly interested in and that my current and future research tries to answer. Overall, I want to seek ways to <strong>design and build chips that do good to the human kind</strong>: aiding useful AI agents and preventing potential threats.</p>
+    </section>
+
+    <section id="research-interests" class="section">
+        <h2>Key Research Areas</h2>
+        
+        <h3>1. AI-Hardware Co-design</h3>
+        <p><strong>How will AI shape hardware-software co-design?</strong></p>
+        <p>The rise of AI agent introduces a new pattern of hardware computing and memory access which is so important that everything should be optimized for it. My recent papers explore new AI application's implication on hardware, and propose analytical models to find best application performance under different hardware configurations.</p>
+        <ul>
+            <li><a href="https://arxiv.org/abs/2506.07366">"MoE-GPS"</a> - Exploring new AI application's implications on hardware</li>
+            <li><a href="https://arxiv.org/abs/2410.07531">"Reducing the Cost of Dropout in Flash-Attention by Hiding RNG with GEMM"</a> - Optimizing AI workloads for hardware efficiency</li>
+        </ul>
+
+        <h3>2. Semiconductor Market and AI</h3>
+        <p><strong>How will the momentous rise of AI shape the semiconductor market and the chip making process?</strong></p>
+        <p>New challenges are introduced by AI such as safety risks, export control requirements, and hardware market contention. These scenarios call for a need to explicitly differentiate chips that target AI application's performance from other applications by tuning the hardware resources available.</p>
+        <ul>
+            <li><strong>"Differential Architecture"</strong> (in submission) - A systematic approach that evaluates each application's distinct characteristics, designs hardware with resources and features specifically tailored to the application, and suggests a cost-efficient chip making process that supports flexibility in enabling/disabling hardware resources.</li>
+        </ul>
+
+        <h3>3. Hardware-Level AI Safety</h3>
+        <p><strong>How can we stop AI threat on the hardware level?</strong></p>
+        <p>Because AI models are hard to interpret, in the near future we might start to worry about AI agents that are smarter than us posing threats to the human world. AI alignment is yet an active research field in AI safety, but most solutions are within the software regime, which the AI can easily break.</p>
+        <p>My ongoing research studies:</p>
+        <ul>
+            <li><strong>Threat Detection:</strong> How can we identify malicious behaviors from AI, potentially by monitoring the hardware behaviors on the chip (such as performance counters) to identify deviations from routine</li>
+            <li><strong>Threat Prevention:</strong> How can we prevent the threat or "turn the switch off" when it happens, by reducing the hardware resources that are essential for AI application so that it cannot function or is much less performant</li>
+        </ul>
+    </section>
+
+    <section id="future-work" class="section">
+        <h2>Future Directions</h2>
+        <p>In the future, I will continue my research at the intersection of <strong>AI + hardware architecture</strong>, specifically on understanding AI application's "footprint" (behaviors or patterns) on hardware, and exploiting it to either accelerate or throttle the performance of the application depending on the need.</p>
+        
+        <p>I will continue to do meaningful research in the AI + hardware field that explores new solutions for the rest of my Ph.D. and afterwards. I want to build new hardware/software solutions that respond quickly to the new waves of technology.</p>
+    </section>
+</div>
+
+<footer>
+    <p>Haiyue Ma - Written in February 2025</p>
+</footer>
+
+</body>
+</html>
